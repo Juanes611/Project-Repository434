@@ -1,0 +1,91 @@
+CHALLENGE #1: Display only the even numbers from 1 to 100.
+
+#!/bin/bash
+echo "the even numbers are"
+even=0
+for ((even=o; even<=100; even=even+2)); do
+        echo "$even"
+done
+
+CHALLENGE #2: Compare natural numbers and display "X is greater than Y", "X is equal to Y" or "X is less than Y".
+
+#!/bin/bash
+echo "escriba un numero natural completo"
+read A
+echo "escriba otro numero natural completo"
+read B
+
+if [[ $A < $B ]]
+then
+        echo "$A es menor que $B"
+elif [[ $A > $B ]]
+then
+        echo "$A es mayor que $B"
+else
+        echo "$A es igual a $B"
+fi
+
+CHALLENGE #3: Read N numbers from the stdio and compute their average.
+
+#!/bin/bash
+echo "escriba los numero"
+read -a lista
+
+#average=${lista[@]}
+average=0
+for numero in "${lista[@]}"; do
+        average=$((average + numero))
+done
+resultado=${#lista[@]}
+conclusion=$((average / resultado))
+echo "el promedio es: $conclusion"
+
+
+CHALLENGE #4: Check if a file exists, if it doesn't exist, create it.
+
+  1 #!/bin/bash
+  2 echo "nombre del archivo"
+  3 read nombre
+  4
+  7 if [ -f "$nombre" ]
+  8 then
+  9         echo "ya existe"
+ 10 else
+ 11         echo "no existe, lo voy a crear"
+ 12 touch "$nombre"
+ 13 fi
+
+
+CHALLENGE #5: Write a script that outputs the current time and date. For example: "Current time: 08:02, Current date: 2022-08-10"
+#!/bin/bash
+
+dia=$(date +"%d/%m/%Y")
+hora=$(date +"%M-%H")
+
+echo "hoy es $dia y la hora es $hora"
+
+
+CHALLENGE #6: Write a script that prints information about your OS and version, release number, and kernel version.
+
+  1 #!/bin/bash
+  2
+  3 #everything=$(uname -a)
+  4 OS=$(uname -o)
+  5 kernel=$(uname -v)
+  6 release=$(uname -r)
+  7 #version=$(lsb_release -ds)
+  8
+  9 echo "this is my information OS: $OS Version: $kernel Release: $release"
+
+
+CHALLENGE #7: Write a script that checks if cups service is running. If it running, print "Cups' status is running". Otherwise, prints "Cups's status is stopped".
+
+  1 #!/bin/bash
+  2
+  3 if systemctl is-active --quiet cups.service
+  4 then
+  5         echo "cups status is running"
+  6 else
+  7         echo "cups status is stopped"
+  8 fi
+
